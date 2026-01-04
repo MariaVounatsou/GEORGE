@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Makeup by Giorgos Raftelis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Επαγγελματικό μακιγιάζ για κάθε περίσταση. Κλείσε ραντεβού online." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #fff5fb;
+      --bg-card: #ffffff;
+      --primary: #f28ab2;
+      --primary-dark: #e06294;
+      --text-main: #2c1b2f;
+      --text-muted: #7a667e;
+      --border-soft: #f3d9e7;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.06);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #ffe3f2 0, #fff5fb 40%, #ffffff 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 12px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(to bottom, rgba(255, 245, 251, 0.96), rgba(255, 245, 251, 0.86));
+      border-bottom: 1px solid rgba(242, 138, 178, 0.12);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: conic-gradient(from 200deg, #f7c5df, #f28ab2, #fbe3f1, #f7c5df);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      font-weight: 600;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 18px;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      padding: 7px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      font-weight: 500;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      border-color: var(--border-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-link.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(242, 138, 178, 0.55);
+    }
+
+    .nav-link.primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 14px 32px rgba(242, 138, 178, 0.7);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 32px;
+      padding: 30px 6px 18px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(242, 138, 178, 0.35);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #70d79e;
+      box-shadow: 0 0 0 4px rgba(112, 215, 158, 0.25);
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.18;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #f28ab2, #e06294);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 18px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-secondary span {
+      font-size: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .hero-meta strong {
+      color: var(--text-main);
+    }
+
+    .hero-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(44, 27, 47, 0.84);
+      color: #fff;
+    }
+
+      .hero-card-img-wrap {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 10px;
+        aspect-ratio: 4 / 3;
+        background: #ffffff; /* ή αφαίρεσέ το τελείως */
+        padding: 0; /* σημαντικό! */
+        display: flex;
+      }
+
+      .hero-card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* γεμίζει ΟΛΟ το πλαίσιο */
+        display: block;
+      }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(242, 138, 178, 0.35);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .avatar-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-stack {
+      display: flex;
+      margin-right: 6px;
+    }
+
+    .avatar-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: #f28ab2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #fff;
+    }
+
+    .avatar-circle:nth-child(2) {
+      margin-left: -8px;
+      background: #f7c5df;
+    }
+
+    .avatar-circle:nth-child(3) {
+      margin-left: -8px;
+      background: #f3a5cc;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 34px;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 14px;
+    }
+
+    .section-title {
+      font-size: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .look-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      border: 1px solid rgba(242, 138, 178, 0.18);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .look-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      border-color: var(--primary);
+    }
+
+    .look-image-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 8px;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(145deg, #f7c5df, #f28ab2);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .look-chip {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.56);
+      color: #fff;
+      font-size: 11px;
+    }
+
+    .look-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .look-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .look-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-top: auto;
+    }
+
+    .look-btn {
+      border: none;
+      background: rgba(242, 138, 178, 0.1);
+      color: var(--primary-dark);
+      padding: 6px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .look-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(242, 138, 178, 0.5);
+    }
+
+    /* Button inside look */
+    .more-photos-btn {
+      margin-top: 10px;
+      background: #ffe1ee;
+      border: 1px solid #f3b6ca;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #c74380;
+      transition: 0.2s;
+      width: fit-content;
+    }
+
+    .more-photos-btn:hover {
+      background: #f28ab2;
+      border-color: #f28ab2;
+      color: white;
+    }
+
+    /* BOOKING */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .booking-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(242, 138, 178, 0.18);
+    }
+
+    .booking-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 11px;
+    }
+
+    .booking-form-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      background: #faf7fb;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(242, 138, 178, 0.35);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .booking-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(242, 138, 178, 0.6);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary span {
+      font-size: 16px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(242, 138, 178, 0.75);
+    }
+
+    .booking-small-print {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .booking-side {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.04);
+      font-size: 11px;
+      width: fit-content;
+    }
+
+    .swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #f7c5df, #f28ab2);
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: grid;
+      gap: 5px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--primary);
+    }
+
+    .hours-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+      border: 1px dashed rgba(242, 138, 178, 0.55);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+
+    /* CONTACT & FOOTER */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius-xl);
+      padding: 14px 18px;
+      border: 1px solid rgba(242, 138, 178, 0.2);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 12px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip-link {
+      border-radius: var(--radius-full);
+      padding: 6px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .chip-link:hover {
+      background: #fff5fb;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* --- POPUP GALLERY (PINK STYLE) --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 200, 220, 0.65);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      animation: popup 0.3s ease-out;
+    }
+
+    @keyframes popup {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-content img {
+      max-width: 350px;
+      width: 95%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 8px;
+      right: 14px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #c74380;
+      font-weight: bold;
+    }
+
+    .modal-controls {
+      margin-top: 15px;
+    }
+
+    .modal-controls button {
+      background: #f9bfd2;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 8px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #8b2a52;
+      transition: 0.2s;
+    }
+
+    .modal-controls button:hover {
+      background: #f28ab2;
+      color: white;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .booking-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        align-self: stretch;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .booking-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .booking-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+      }
+    }
+      /* === VIDEO BACKGROUND === */
+      #bgVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        opacity: 0.28; /* μπορείς να αλλάξεις την ένταση */
+      }
+
+      /* Κάνει το φόντο ελαφρώς ημιδιαφανές ώστε να φαίνεται το video */
+      body {
+        background: rgba(255, 240, 245, 0.6);
+        backdrop-filter: blur(1px);
+      }
+
+  </style>
+</head>
+
+<body>
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="video/background.mp4" type="video/mp4">
+  </video>
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-circle">GR</div>
+        <div>
+          <div class="logo-text-main">Makeup by Giorgos</div>
+          <div class="logo-text-sub">Bridal • Glam • Editorial</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-link" data-scroll-target="gallery">Portfolio</button>
+        <button class="nav-link" data-scroll-target="booking">Κλείσε ραντεβού</button>
+        <button class="nav-link" data-scroll-target="contact">Επικοινωνία</button>
+        <button class="nav-link primary" data-scroll-target="booking">Book now</button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Απομένουν διαθέσιμες ώρες για αυτό το μήνα
+          </div>
+
+          <h1 class="hero-title">
+            Επαγγελματικό <span>μακιγιάζ</span> για κάθε στιγμή που
+            θέλεις να ξεχωρίσεις.
+          </h1>
+
+          <p class="hero-text">
+            Bridal looks, soft glam, editorial & φωτογραφίσεις. Δες το
+            portfolio και κλείσε εύκολα το ραντεβού σου online.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn-primary" data-scroll-target="booking">
+              <span>✦</span> Κλείσε ραντεβού
+            </button>
+
+            <button class="nav-link" data-scroll-target="gallery">
+              Δες όλα τα looks
+            </button>
+          </div>
+
+          <div class="hero-secondary">
+            <span>★</span>
+            5.0 / 5 από πελάτισσες σε social
+          </div>
+
+          <div class="hero-meta">
+            <div><strong>Πλωμάρι, Λέσβος</strong> • studio & κατ’ οίκον</div>
+            <div><strong>Νυφικό</strong>, βραδινό, special effects</div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-tag">Signature bridal glam</div>
+          <div class="hero-card-img-wrap">
+              <img src="img/giorgos.jpg" alt="Giorgos Raftelis Makeup Artist" style="width:100%; height:100%; object-fit:cover;"> <!-- εικόνα Γιώργου -->
+          </div>
+
+          <div class="hero-chip-row">
+            <div class="hero-chip">Waterproof</div>
+            <div class="hero-chip">All day wear</div>
+            <div class="hero-chip">HD / photo ready</div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="avatar-group">
+              <div class="avatar-stack">
+                <div class="avatar-circle">M</div>
+                <div class="avatar-circle">K</div>
+                <div class="avatar-circle">S</div>
+              </div>
+              <span>+120 ραντεβού τον τελευταίο χρόνο</span>
+            </div>
+            <span>Απάντηση εντός 24 ωρών</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery">
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">Portfolio looks</h2>
+            <p class="section-subtitle">
+              Πάτησε σε ένα look για να το επιλέξεις στο ραντεβού σου.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Look 1 -->
+          <article class="look-card" data-look-name="Bridal Soft Glam">
+            <div class="look-image-wrap"
+                style="background-image: url('img/bridal_card.jpg');
+                       background-size: cover;
+                       background-position: center;">
+              <div class="look-chip">Νυφικό</div>
+            </div>
+            <h3 class="look-title">Bridal Soft Glam</h3>
+            <p class="look-desc">
+              Φυσικό, φωτεινό δέρμα με διακριτικό smokey eye και nude χείλη.
+            </p>
+            <div class="look-footer">
+              <span>Ιδανικό για γάμο & αρραβώνα</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="bridal">Δες περισσότερες φωτογραφίες</button>
+          </article>
+
+          <!-- Look 2 -->
+          <article class="look-card" data-look-name="Classic Evening Glam">
+            <div class="look-image-wrap">
+              <!-- <img src="img/evening-cover.jpg" alt="Evening glam" /> -->
+              <div class="look-chip">Βραδινό</div>
+            </div>
+            <h3 class="look-title">Classic Evening Glam</h3>
+            <p class="look-desc">
+              Έντονο eyeliner, φωτεινή γωνία ματιού και bold χείλη.
+            </p>
+            <div class="look-footer">
+              <span>Για εξόδους & events</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="evening">Δες περισσότερες φωτογραφίες</button>
+          </article>
+
+          <!-- Look 3 -->
+          <article class="look-card" data-look-name="Soft Foxy Eyes">
+            <div class="look-image-wrap">
+              <!-- <img src="img/foxy-cover.jpg" alt="Soft foxy eyes" /> -->
+              <div class="look-chip">Editorial</div>
+            </div>
+            <h3 class="look-title">Soft Foxy Eyes</h3>
+            <p class="look-desc">
+              Τονισμένο βλέμμα με ανόρθωση ματιού & φυσικές αποχρώσεις.
+            </p>
+            <div class="look-footer">
+              <span>Δυνατό για φωτογραφίσεις</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="foxy">Δες περισσότερες φωτογραφίες</button>
+          </article>
+
+          <!-- Look 4 -->
+          <article class="look-card" data-look-name="Fresh Natural Glow">
+            <div class="look-image-wrap">
+              <!-- <img src="img/natural-cover.jpg" alt="Fresh natural glow" /> -->
+              <div class="look-chip">Καθημερινό</div>
+            </div>
+            <h3 class="look-title">Fresh Natural Glow</h3>
+            <p class="look-desc">
+              No-makeup makeup, τέλειο δέρμα με ροδαλά μάγουλα.
+            </p>
+            <div class="look-footer">
+              <span>Για βάπτιση & brunch</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="natural">Δες περισσότερες φωτογραφίες</button>
+          </article>
+
+          <!-- Look 5 -->
+          <article class="look-card" data-look-name="Smokey Drama">
+            <div class="look-image-wrap"
+                 style="background-image: url('img/smokeydrama_card.jpg');
+                        background-size: cover;
+                        background-position: center;">
+              <div class="look-chip">Dramatic</div>
+            </div>
+            <h3 class="look-title">Smokey Drama</h3>
+            <p class="look-desc">
+              Βαθύ smokey eye με ένταση και λάμψη στο κέντρο βλεφάρου.
+            </p>
+            <div class="look-footer">
+              <span>Για βραδινές εμφανίσεις</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="drama">Δες περισσότερες φωτογραφίες</button>
+          </article>
+
+          <!-- Look 6 -->
+          <article class="look-card" data-look-name="Creative Color Pop">
+            <div class="look-image-wrap">
+              <!-- <img src="img/creative-cover.jpg" alt="Creative color pop" /> -->
+              <div class="look-chip">Creative</div>
+            </div>
+            <h3 class="look-title">Creative Color Pop</h3>
+            <p class="look-desc">
+              Χρώμα στα μάτια, graphic στοιχεία και φρέσκο δέρμα.
+            </p>
+            <div class="look-footer">
+              <span>Editorial & καμπάνιες</span>
+              <button class="look-btn">Κλείσε αυτό το look</button>
+            </div>
+            <button class="more-photos-btn" data-gallery="creative">Δες περισσότερες φωτογραφίες</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- BOOKING -->
+      <section id="booking">
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">Κράτηση ραντεβού</h2>
+            <p class="section-subtitle">
+              Συμπλήρωσε τη φόρμα και θα λάβεις προσωπική επιβεβαίωση.
+            </p>
+          </div>
+        </div>
+
+        <div class="booking-layout">
+          <!-- Form -->
+          <div class="booking-card">
+            <p class="booking-note">
+              ✦ Αν έχεις επιλέξει κάποιο look από το portfolio, θα μπει
+              αυτόματα στο πεδίο <strong>“Επιλογή look”</strong>.
+            </p>
+
+            <form 
+              id="bookingForm" 
+              action="https://formspree.io/f/myzaepzb" 
+              method="POST"
+            >
+              <div class="booking-form-grid">
+                <div class="form-group">
+                  <label for="name">Ονοματεπώνυμο</label>
+                  <input type="text" id="name" name="Όνομα" placeholder="Π.χ. Μαρία Παπαδοπούλου" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Κινητό</label>
+                  <input type="tel" id="phone" name="Κινητό" placeholder="69XXXXXXXX" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="Email" placeholder="name@example.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="date">Ημερομηνία</label>
+                  <input type="date" id="date" name="Ημερομηνία" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="time">Ώρα</label>
+                  <input type="time" id="time" name="Ώρα" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="service">Επιλογή look</label>
+                  <input type="text" id="service" name="Look" placeholder="Bridal Soft Glam, Βραδινό κ.λπ." />
+                </div>
+
+                <div class="form-group full">
+                  <label for="details">Λεπτομέρειες (τύπος εκδήλωσης, τοποθεσία κ.λπ.)</label>
+                  <textarea id="details" name="Λεπτομέρειες" placeholder="Πες μου λίγα λόγια για την περίσταση, το στυλ που έχεις στο μυαλό σου και αν θέλεις χώρο κατ' οίκον ή στο studio."></textarea>
+                </div>
+              </div>
+
+              <div class="booking-cta-row">
+                <button type="submit" class="btn-primary">
+                  <span>♡</span> Αποστολή αίτησης ραντεβού
+                </button>
+                <p class="booking-small-print">
+                  Η αποστολή της φόρμας δεν αποτελεί αυτόματη
+                  επιβεβαίωση – θα επικοινωνήσω μαζί σου προσωπικά.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Info -->
+          <aside class="booking-side">
+            <div class="pill">
+              <div class="swatch"></div>
+              Makeup artist • Πλωμάρι
+            </div>
+
+            <p>
+              Δουλεύω με επαγγελματικά προϊόντα υψηλής αντοχής, κατάλληλα
+              για φωτογράφιση, βίντεο και πολύωρη διάρκεια.
+            </p>
+
+            <ul class="bullet-list">
+              <li>Υπηρεσίες στο studio & κατ’ οίκον</li>
+              <li>Διαθέσιμα δοκιμαστικά για νυφικό μακιγιάζ</li>
+              <li>Δυνατότητα travel για γάμους εκτός Πλωμαρίου</li>
+            </ul>
+
+            <div class="hours-card">
+              <strong>Ώρες ραντεβού</strong>
+              <div class="hours-row">
+                <span>Δευτέρα – Παρασκευή</span>
+                <span>11:00 – 20:00</span>
+              </div>
+              <div class="hours-row">
+                <span>Σάββατο</span>
+                <span>10:00 – 18:00</span>
+              </div>
+              <div class="hours-row">
+                <span>Κυριακή</span>
+                <span>Κατόπιν συνεννόησης</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" style="margin-top: 30px;">
+        <div class="contact-card">
+          <div>
+            <strong>Επικοινωνία</strong>
+            <div>Για άμεση διαθεσιμότητα, μπορείς πάντα να μου στείλεις μήνυμα.</div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="chip-link" href="tel:+306987344013">
+              📞 Κλήση
+            </a>
+            <a class="chip-link" href="https://wa.me/3069XXXXXXXX" target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+            <a class="chip-link" href="https://www.instagram.com/george_raftelis_official?igsh=MWYybWE3OTV5bnk3cA==" target="_blank" rel="noopener">
+              📸 Instagram
+            </a>
+            <a class="chip-link" href="mailto:info@exampe.com">
+              ✉ E-mail
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Makeup by Giorgos • Με αγάπη από Πλωμάρι
+    </footer>
+  </div>
+
+  <!-- Popup Gallery Modal -->
+  <div id="galleryModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div id="modalMedia"></div>
+      <div class="modal-controls">
+        <button id="prevBtn">◀</button>
+        <button id="nextBtn">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* ------------------------------------------
+       GALLERY: Υποστηρίζει ΦΩΤΟ + ΒΙΝΤΕΟ
+  -------------------------------------------*/
+
+  // Δηλώνεις εδώ ΟΛΑ τα αρχεία σου ανά look
+  // Μπορείς να έχεις ΟΣΑ θες (jpg, png, mp4, mov, webm)
+
+  const galleries = {
+    bridal: [
+      "bridal1.jpg",
+      "bridal2.jpg",
+      "bridal3.jpg",
+      "bridal4.jpg",
+      "bridal.mp4"    // ← ΒΙΝΤΕΟ bridal
+    ],
+
+    evening: [
+      "evening1.jpg",
+      "evening2.jpg",
+      "evening3.jpg",
+      "evening4.jpg",
+      "evening.mp4"   // θα το βάλεις όταν το ανεβάσεις
+    ],
+
+    foxy: [
+      "foxy1.jpg",
+      "foxy2.jpg",
+      "foxy3.jpg",
+      "foxy4.jpg",
+      "foxy.mp4"
+    ],
+
+    natural: [
+      "natural1.jpg",
+      "natural2.jpg",
+      "natural3.jpg",
+      "natural4.jpg",
+      "natural.mp4"  // ← ΕΧΕΙΣ ήδη το αρχείο
+    ],
+
+    drama: [
+      "drama1.jpg",
+      "drama2.jpg",
+      "drama3.jpg",
+      "drama4.jpg",
+      "drama.mp4"
+    ],
+
+    creative: [
+      "creative1.jpg",
+      "creative2.jpg",
+      "creative3.jpg",
+      "creative4.jpg",
+      "creative.mp4"
+    ],
+  };
+
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  const modal = document.getElementById("galleryModal");
+  const modalMedia = document.getElementById("modalMedia");
+  const closeBtn = document.querySelector(".modal-close");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  // Ανοίγει το modal όταν πατάς το κουμπί
+  document.querySelectorAll(".more-photos-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const galleryName = btn.getAttribute("data-gallery");
+      currentGallery = galleries[galleryName];
+      currentIndex = 0;
+      openModal();
+    });
+  });
+
+  function openModal() {
+    modal.style.display = "flex";
+    showMedia();
+  }
+
+  // Δείχνει είτε εικόνα είτε βίντεο
+  function showMedia() {
+    const file = currentGallery[currentIndex];
+    const extension = file.split('.').pop().toLowerCase();
+
+    // Καθαρίζει το προηγούμενο
+    modalMedia.innerHTML = "";
+
+    if (["mp4", "mov", "webm"].includes(extension)) {
+      // ΒΙΝΤΕΟ
+      const video = document.createElement("video");
+      video.src = "img/" + file;
+      video.controls = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.style.maxWidth = "100%";
+      video.style.borderRadius = "15px";
+      modalMedia.appendChild(video);
+    } else {
+      // ΕΙΚΟΝΑ
+      const img = document.createElement("img");
+      img.src = "img/" + file;
+      img.style.maxWidth = "100%";
+      img.style.borderRadius = "15px";
+      modalMedia.appendChild(img);
+    }
+  }
+
+  // Κουμπιά πλοήγησης
+  prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    showMedia();
+  };
+
+  nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    showMedia();
+  };
+
+  // Κλείσιμο modal
+  closeBtn.onclick = () => modal.style.display = "none";
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+  </script>
+  <script>
+  /* -------------------------
+     SCROLL ΣΤΙΣ ΕΝΟΤΗΤΕΣ
+  --------------------------*/
+  document.querySelectorAll("[data-scroll-target]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-scroll-target");
+      const section = document.getElementById(targetId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  /* ----------------------------------------
+     ΟΤΑΝ ΠΑΤΑΣ "ΚΛΕΙΣΕ ΑΥΤΟ ΤΟ LOOK"
+  -----------------------------------------*/
+  document.querySelectorAll(".look-btn").forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
+      const lookCard = button.closest(".look-card");
+      const lookName = lookCard.getAttribute("data-look-name");
+
+      // Συμπλήρωση του πεδίου επιλογής look
+      document.getElementById("service").value = lookName;
+
+      // Scroll στο booking section
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+  </script>
+
+</body>
+</html>
+
